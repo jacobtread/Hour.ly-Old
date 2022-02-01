@@ -1,19 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
     <link href="./styles.css" rel="stylesheet">
     <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+</head>
+<body>
+<main class="content dragging">
+    <div class="toolbar">
+        <h1 class="toolbar__title">Hour<span>.ly</span></h1>
+        <div class="toolbar__buttons no-drag">
+            <button id="minimize" class="toolbar__button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                     fill="currentColor">
+                    <path d="M0 0h24v24H0V0z" fill="none"/>
+                    <path d="M6 19h12v2H6z"/>
+                </svg>
+            </button>
+            <button id="close" class="toolbar__button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                     fill="currentColor">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="main">
+        <div class="action__block">
+            <button id="action" class="action no-drag">
+                <svg class="action__start action__icon" xmlns="http://www.w3.org/2000/svg" height="24px"
+                     viewBox="0 0 24 24"
+                     width="24px" fill="currentColor">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+                <svg class="action__stop action__icon" xmlns="http://www.w3.org/2000/svg" height="24px"
+                     viewBox="0 0 24 24"
+                     width="24px" fill="currentColor">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M6 6h12v12H6z"/>
+                </svg>
+            </button>
+            <p id="elapsed"></p>
+            <p id="total"></p>
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+        </div>
+        <ul id="history" class="no-drag">
+
+        </ul>
+    </div>
+</main>
+</body>
 </html>
